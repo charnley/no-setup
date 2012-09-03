@@ -16,7 +16,7 @@
 
 
 
-xterm*background:            #333333
+xterm*background:            #111111
 xterm*foreground:            #CCCCCC
 xterm*cursorColor:           #999999
 xterm*colorBD:               #FFFFFF

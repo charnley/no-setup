@@ -52,6 +52,12 @@ sudo apt-get install\
 # Volumeicon dependicies
 sudo apt-get install gtk+-2.0 libasound2-dev pkg-config
 
+# Icon Theme
+sudo add-apt-repository ppa:kroq-gar78/ppa 
+sudo apt-get update
+sudo apt-get install -y fs-icons-ubuntu fs-icons-ubuntu-mono-dark fs-icons-ubuntu-mono-light
+
+
 
 # TODO icon-theme for pcmanfm
 #      tangerine-icon-theme

@@ -1,0 +1,28 @@
+
+TODO  Create a bash-file for mounting external drive
+      # FAT32
+      sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137
+      # NTFS
+      sudo mount -t ntfs-3g /dev/sdb1 /media/external
+
+      # UNMOUNT
+      sudo umount /dev/sdb1
+      sudo umount /media/external
+
+
+
+TODO  bindsym Print exec ~/bin/mlscreenshot.sh
+      using scrot
+
+
+TODO 
+ # {{{ automatically putting clients on specific workspaces
+ assign [class="Firefox"] 1
+ assign [class="Chromium"] 1
+ assign [class="Pidgin"] 1
+ assign [class="Skype"] 1
+ assign [class="xchat"] 1
+ assign [class="Sunflower"] 2
+ assign [class="Thunar"] 2
+# }}}
+

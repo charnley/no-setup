@@ -1,0 +1,51 @@
+		! Use a nice truetype font and suze by default
+		xterm*faceName: Monaco
+    xterm*faceSize: 10
+
+    ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+    xterm*loginshell: true
+
+    ! I like a LOT of scrollback...
+    xterm*savelines: 16384
+
+    ! double-click to select whole URLs :D
+    xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+    ! stop output to terminal from jumping down to bottom of scroll again
+    xterm*scrollTtyOutput: false
+
+
+
+xterm*background:            #333333
+xterm*foreground:            #CCCCCC
+xterm*cursorColor:           #999999
+xterm*colorBD:               #FFFFFF
+xterm*colorUL:               #CCCC66
+
+
+!------------ VisiTacky ------------!
+!!BLACK
+xterm*color0:               #666666
+xterm*color8:               #999999
+!!RED
+xterm*color1:               #CC3366
+xterm*color9:               #FF6699
+!!GREEN
+xterm*color2:               #66CC33
+xterm*color10:              #99FF66
+!!YELLOW
+xterm*color3:               #CC9933
+xterm*color11:              #FFCC66
+!!BLUE
+xterm*color4:               #3366CC
+xterm*color12:              #6699FF
+!!MAGENTA
+xterm*color5:               #9933CC
+xterm*color13:              #CC66FF
+!!CYAN
+xterm*color6:               #33CC99
+xterm*color14:              #66FFCC
+!!WHITE
+xterm*color7:               #CCCCCC
+xterm*color15:              #FFFFFF
+

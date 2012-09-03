@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Make sure native monitor is at max 
+# resolution
+xrandr --output LVDS1 --auto
+
+if [ "$1" == "on" ];
+then
+  echo "Turning external monitor on"
+  xrandr --output VGA1 --auto --left-of LVDS1  
+fi
+
+if [ "$1" == "off" ];
+then
+  echo "Turning external monitor off"
+  xrandr --output VGA1 --off
+fi
+
+if [ "$1" == "" ];
+then
+  echo "PLEASE STATE MONITOR on OR off."
+fi
+
+# Retart I3 to get panels back
+i3 restart > .monitorlog
+

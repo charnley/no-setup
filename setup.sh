@@ -18,11 +18,13 @@ sudo fc-cache -f -v
 cd ../cpfiles
 cp -r * ~/
 
-
-
-
+# Set xterm with fancy new colours
+xrdb -merge .Xresources
 
 # TODO add user to audio
 # TODO add user to plugdev
+
+
+cd ..
 
 

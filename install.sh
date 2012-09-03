@@ -5,7 +5,7 @@ sudo apt-get install \
   xorg \
   xdm	\
   i3 \
-  pm-utils \
+  pm-utils 
 
 # sound
 # TODO I prop dont need this much

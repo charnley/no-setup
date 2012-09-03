@@ -18,3 +18,15 @@ Run Setup.sh to move files and download some stuff.
 If you want a volumecontrol in the statusbar, 
 follow these instructions to install
 'volumecontrol' http://softwarebakery.com/maato/volumeicon.html
+
+
+
+FAQ
+=========================
+
+*How do i connect to a wireless network?*
+
+Open a terminal and type 'wicd-curses' to use
+the terminal interface and connect to a network,
+wired or wireless
+

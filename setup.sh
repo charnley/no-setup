@@ -22,14 +22,17 @@ cp -r oh-my-zsh ~/.oh-my-zsh
 
 # Copy Stuff to home folder
 echo "Copying files..."
-cd ../cpfiles
+cd ..
 pwd
 
-cp -r * ~
+cp -r cpfiles/* ~
+cp -r cpfiles/.* ~
 
 # Set xterm with fancy new colours
+cd cpfiles
 xrdb -merge .Xresources
 
+# Do the following yourself for now:
 # TODO add user to audio
 # TODO add user to plugdev
 
@@ -37,7 +40,7 @@ cd ..
 pwd
 
 # Change Shell type from bash to zsh
-chsh -s /bin/zsh ${user}
+chsh -s /bin/zsh
 
 echo "ENJOY zsh/i3 SETUP WITH NICE COLOURS"
 

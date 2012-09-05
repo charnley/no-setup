@@ -2,8 +2,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-colorscheme molokai
-
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
 if filereadable(expand("~/.vimrc.before"))
@@ -26,7 +24,7 @@ set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
+"set visualbell                  "No sounds ANNOYING
 set autoread                    "Reload files changed outside vim
 
 " This makes vim act like all other editors, buffers can
@@ -40,7 +38,7 @@ syntax on
 " ================ Search Settings  =================
 
 set incsearch        "Find the next match as we type the search
-set hlsearch         "Hilight searches by default
+"set hlsearch         "Hilight searches by default
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 " ================ Turn Off Swap Files ==============
@@ -59,7 +57,7 @@ set undofile
 
 " ================ Indentation ======================
 
-set autoindent
+"set autoindent ANNOYING
 set smartindent
 set smarttab
 set shiftwidth=2

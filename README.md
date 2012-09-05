@@ -20,6 +20,15 @@ follow these instructions to install
 'volumecontrol' http://softwarebakery.com/maato/volumeicon.html
 
 
+Keyboard Shortcuts
+=========================
+
+ See .i3/config for general shortcuts
+
+ See .Xressource for terminal shortcuts
+ (Yes, I actually added ctrl+shift+v for
+  pasting in xterm)
+
 
 FAQ
 =========================
@@ -29,4 +38,9 @@ FAQ
 Open a terminal and type 'wicd-curses' to use
 the terminal interface and connect to a network,
 wired or wireless
+
+*It does not work, what to do*
+
+Learn linux and fix it. This is basicly just for showing
+some friends what setup and configs I'm using.
 

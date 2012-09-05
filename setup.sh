@@ -35,6 +35,11 @@ xrdb -merge .Xresources
 # Do the following yourself for now:
 # TODO add user to audio
 # TODO add user to plugdev
+# TODO Setup pm-suspend in
+#      sudo visudo
+#      and added
+#      charnley ALL=(ALL) NOPASSWD: /usr/sbin/pm-suspend
+
 
 cd ..
 pwd

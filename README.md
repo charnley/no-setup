@@ -1,6 +1,6 @@
 # Ubuntu - Minimal Tile Setup (MTS)
 
-![Screenshot](/screenshots/screenshot_1.png)
+![Desktio Screenshot](https://raw.github.com/charnley/ubuntu-mts/master/screenshots/screenshot_1.png)
 
 
 So this is basicly a small 'distribution' I made because I felt the workflow in
@@ -29,7 +29,7 @@ The shortcuts is split into two categories, terminal usage and i3 (genereal)
 usage.
 
 <table>
-  <tr><td>Keys</td><td>Command</td></tr>
+  <tr><td>*Keys*</td><td>*Command*</td></tr>
   <tr><td>Super+Q</td><td>Kill Selected Application</td></tr>
   <tr><td>Control + Alt + L</td><td> Lock Computer</td></tr>
   <tr><td>Super + O</td><td> Lock and Suspend Computer </td></tr>
@@ -45,6 +45,7 @@ See .Xressource for terminal shortcuts
 ## FAQ
 
 * *How do i connect to a wireless network?*
+
 Open a terminal and type 'wicd-curses' to use
 the terminal interface and connect to a network,
 wired or wireless

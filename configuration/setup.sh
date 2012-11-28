@@ -19,7 +19,6 @@ sudo fc-cache -f -v
 git clone git://github.com/robbyrussell/oh-my-zsh.git 
 cp -r oh-my-zsh ~/.oh-my-zsh
 
-
 # Copy Stuff to home folder
 echo "Copying files..."
 cd ..

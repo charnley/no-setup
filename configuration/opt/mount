@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ "$1" == "" ];
+then
+  echo "Provide either flag 'mount TYPE' or 'unmount'"
+  exit
+fi
+
+if [ "$1" == "mount" ];
+then
+
+  if [ "$2" == "" ];
+  then
+    echo "Please provide USB Format:"
+    echo "ntfs fat32"
+    exit
+  fi
+
+  if [ "$2" == "ntfs" ];
+  then
+    sudo mount -t ntfs-3g /dev/sdb1 /media/external
+  fi
+
+  if [ "$2" == "fat32" ];
+  then
+    sudo mount -t vfat /dev/sdb1 /media/external -o uid=1000,gid=1000,utf8,dmask=027,fmask=137
+  fi
+
+  # TODO More mount types
+fi
+
+if [ "$1" == "unmount" ];
+then
+  sudo umount /media/external
+fi
+

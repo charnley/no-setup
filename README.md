@@ -18,6 +18,7 @@ Installation script for a minimal setup of linux, based on tile wm (i3) and the 
 
 1. Download and install the newest ubuntu minimal cd from
 https://help.ubuntu.com/community/Installation/MinimalCD.
+I recommend 12.04 because of LTS.
 
 2. Run install.sh to install all the packages for i3 fun.
 

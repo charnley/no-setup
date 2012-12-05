@@ -31,7 +31,7 @@ usage.
 
 <table>
   <tr><td>*Keys*</td><td>*Command*</td></tr>
-  <tr><td>Super+Space</td><td>Open new Terminal</td></tr>
+  <tr><td>Super+Enter</td><td>Open new Terminal</td></tr>
   <tr><td>Super+Q</td><td>Kill Selected Application</td></tr>
   <tr><td>Control + Alt + L</td><td> Lock Computer</td></tr>
   <tr><td>Super + O</td><td> Lock and Suspend Computer </td></tr>

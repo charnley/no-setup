@@ -1,0 +1,27 @@
+
+
+#nm-applet not working
+https://bbs.archlinux.org/viewtopic.php?pid=1122362
+http://forum.linuxmint.com/viewtopic.php?f=208&t=110914
+http://jeffhoogland.blogspot.dk/2012/05/howto-give-network-manager-sufficient.html
+
+
+#make pm-suspend a non-root command
+http://askubuntu.com/questions/136356/allow-root-program-to-run-without-privileges
+sudo visudo
+charnley ALL=NOPASSWD:/usr/sbin/pm-suspend-hybrid
+charnkey ALL=NOPASSWD:/usr/sbin/pm-suspend-hybrid
+
+#icons in pcmanfm
+sudo apt-get install light-themes
+add
+gtk-icon-theme-name = "Ambiance"
+to ~/.gtkrc-2.0
+
+list installed icon themes
+ls ~/.icons /usr/share/icons/
+
+# MS Fonts
+sudo apt-get install ttf-mscorefonts-installer
+
+

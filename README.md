@@ -23,8 +23,11 @@ aimed towards power users.
 
 1) Download 'Ubuntu Minimal CD' from
 [https://help.ubuntu.com/community/Installation/MinimalCD](https://help.ubuntu.com/community/Installation/MinimalCD).
-I recommend 12.04 because of LTS (Long Term Support).
+I recommend 12.04 because of its LTS (Long Term Support).
 Install it on your computer.
+
+Now you have a nice clean setup. No display, no nothing. Enjoy that for a few
+seconds, then go to the next step.
 
 2) Install git
 
@@ -79,8 +82,8 @@ the configuration file.
 
 <table>
   <tr><td><strong>Keys</strong></td><td><strong>Command</strong></td></tr>
-  <tr><td>Super + &#60; arrow &#62;</td><td>Change focus in arrow direction</td></tr>
-  <tr><td>Super + Shift + &#60; arrow &#62;</td><td>Move window in arrow direction</td></tr>
+  <tr><td>Super + &#60;arrow&#62;</td><td>Change focus in arrow direction</td></tr>
+  <tr><td>Super + Shift + &#60;arrow&#62;</td><td>Move window in arrow direction</td></tr>
   <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
   <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
 </table>
@@ -101,11 +104,9 @@ the configuration file.
 
 <table>
   <tr><td>Esc</td><td>Exit resize mode</td></tr>
-  <tr><td> &#60; arrow &#62; </td><td>Extend in direction</td></tr>
-  <tr><td>Shift + &#60; arrow &#62;</td><td>Retract in direction</td></tr>
+  <tr><td> &#60;arrow&#62; </td><td>Retract in direction</td></tr>
+  <tr><td>Shift + &#60;arrow&#62;</td><td>Extend in direction</td></tr>
 </table>
-
-## FAQ
 
 
 

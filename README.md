@@ -1,7 +1,7 @@
 
 # No Setup, Installation setup script for Ubuntu Minimal 12.04
 
-![Screenshot](http://placehold.it/350x150.png)
+![Screenshot](https://raw.github.com/charnley/no-setup/master/screenshots/screenshot_1.png)
 
 ## Why?
 
@@ -21,32 +21,32 @@ aimed towards power users.
 
 ## Installation Instructions
 
-1. Download 'Ubuntu Minimal CD' from
+1) Download 'Ubuntu Minimal CD' from
 [https://help.ubuntu.com/community/Installation/MinimalCD](https://help.ubuntu.com/community/Installation/MinimalCD).
 I recommend 12.04 because of LTS (Long Term Support).
 Install it on your computer.
 
-2. Install git
+2) Install git
 
     sudo apt-get install git
 
-Download Nobuntu installation script.
+3) Download installation script.
 
-    git clone git://github.com/nobuntu/nobuntu-install.git
+    git clone git://github.com/charnley/no-setup.git
 
 
-Run the installation script 'install' from the folder, and remember to run it as administrator.
+4) Run the installation script 'install' from the folder, and remember to run it as administrator.
 
-    cd nobuntu-install
+    cd no-setup
     sudo ./install
 
 
-Run the configuration script for the user you want to configure.
+5) Run the configuration script for the user you want to configure.
 
     ./config
 
 
-Restart and Happy i3'ing
+6) Restart and Happy i3'ing
 
     sudo shutdown -r now
 
@@ -79,8 +79,8 @@ the configuration file.
 
 <table>
   <tr><td><strong>Keys</strong></td><td><strong>Command</strong></td></tr>
-  <tr><td>Super + <arrow></td><td>Change focus in arrow direction</td></tr>
-  <tr><td>Super + Shift + <arrow></td><td>Move window in arrow direction</td></tr>
+  <tr><td>Super + &#60; arrow &#62;</td><td>Change focus in arrow direction</td></tr>
+  <tr><td>Super + Shift + &#60; arrow &#62;</td><td>Move window in arrow direction</td></tr>
   <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
   <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
 </table>
@@ -94,15 +94,15 @@ the configuration file.
   <tr><td>Super + Shift + Space</td><td>Toggle floating</td></tr>
   <tr><td>Super + h</td><td>Horizontal split</td></tr>
   <tr><td>Super + v</td><td>Vertical split</td></tr>
-  <tr><td>Super + r</td><td>Resize window</td></tr>
+  <tr><td>Super + r</td><td>Resize window mode</td></tr>
 </table>
 
-### Resize window
+### Resize window mode
 
 <table>
   <tr><td>Esc</td><td>Exit resize mode</td></tr>
-  <tr><td><arrow></td><td>Extend in direction</td></tr>
-  <tr><td>Shift + <arrow></td><td>Retract in direction</td></tr>
+  <tr><td> &#60; arrow &#62; </td><td>Extend in direction</td></tr>
+  <tr><td>Shift + &#60; arrow &#62;</td><td>Retract in direction</td></tr>
 </table>
 
 ## FAQ

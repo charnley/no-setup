@@ -28,7 +28,7 @@ setup_network()
 
 
 whiptail\
-  --title "Nobuntu Config Menu"\
+  --title "Config Menu"\
   --yesno "This will configure dotfiles like 'Jimmy' wants it. Are you sure?"\
   $NOLIN $NOCOL
 

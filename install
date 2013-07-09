@@ -38,8 +38,8 @@ install_default()
   done
 
   whiptail\
-    --title "Nobuntu Installation Menu"\
-    --yesno "This will install Nobuntu with the default packages. Are you sure?"\
+    --title "Installation Menu"\
+    --yesno "This will install with the default packages. Are you sure?"\
     $NOLIN $NOCOL
 
   exitstatus=$?
@@ -144,7 +144,7 @@ menu_list()
 menu_main()
 {
   menu=$(whiptail\
-    --title "Nobuntu Installation Menu"\
+    --title "Installation Menu"\
     --menu " " $NOLIN $NOCOL $NOVIW \
     "A)" "Default Installation.  (Recommended)"\
     "B)" "Guided Installation.   Wizard installation. "\
@@ -174,14 +174,14 @@ menu_main()
 }
 
 whiptail \
- --title "Nobuntu Installation Menu"\
+ --title "Installation Menu"\
  --msgbox "\
-\n NOBUNTU INSTALLATION\
+\n INSTALLATION\
 \n \
-\n This guide will help you install Nobuntu. \
+\n This guide will help you install the setup. \
 \n \
 \n If you find any bugs, please report it on github:\
-\n http://github.com/nobuntu/install" $NOLIN $NOCOL
+\n http://github.com/charnley/no-setup" $NOLIN $NOCOL
 
 menu_main
 

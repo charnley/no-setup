@@ -35,4 +35,5 @@ plugins=(git git-flow)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-
+# some more ls aliases
+alias l='ls -lah'

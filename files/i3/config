@@ -1,23 +1,60 @@
-# JCK Config
-#
+# MTS Configuration
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see http://i3wm.org/docs/userguide.html for a 
+# complete reference!
 
+# Modification Keys:
+# shift       Shift_L (0x31),   Shift_R (0x3d)
+# lock        Caps_Lock (0x41)
+# control     Control_L (0x24), Control_R (0x87)
+# mod1        Alt_L (0x3f),     Alt_R (0x88)
+# mod2        Num_Lock (0x4c)
+# mod3        n/a
+# mod4        n/a
+# mod5        n/a
+
+# set $mod to super key
 set $mod Mod4
 
-# JCK CHANGES
-bindsym $mod+Q kill
-bindsym $mod+o exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d & sudo pm-suspend
-bindsym $mod+l exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
-#bindsym Control_L+Space exec dmenu_run
-#bindsym ctrl+alt+L exec i3lock -d -c 333333
-bindsym $mod+b exec sh -c 'xsel'
-focus_follows_mouse no
-
-# font for window titles. ISO 10646 = Unicode
+# Set Font for Window Titles.
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font xft:Ubuntu Sans 8
+#font xft:Monaco 9
+
+# And now for all the shortcuts:
+
+# Close a window
+bindsym $mod+q kill
+
+# Lock and suspend
+bindsym $mod+o exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d & sudo pm-suspend
+
+# Lock Computer
+bindsym $mod+l exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
+bindsym Control+Mod1+L exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
+
+# Print Screen = Screenshot
+bindsym Print exec scrot -q 100
+# bindsym Control+Print exec scrot -q 100 # not working
+
+# Volume up / down / mute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+#bindsym XF86AudioMute exec amixer -q set Master toggle # does not work proberbly
+
+
+#bindsym Control+Space exec dmenu_run
+
+# Primary paste
+# TODO Not working
+#bindsym $mod+Shift+V exec sh -c 'xdotool type "xsel"'
+#bindsym $mod+Shift+b exec sh -c 'xdotool type "xsel"'
+#bindsym $mod+b exec sh -c 'xsel | -xsendevent -file 2>/dev/null'
+
+# Do not focus on window, on mouse hover
+focus_follows_mouse no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -30,26 +67,15 @@ bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
+bindsym $mod+space exec dmenu_run
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-#bindsym $mod+l focus up
-bindsym $mod+ae focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+J move left
-bindsym $mod+Shift+K move down
-bindsym $mod+Shift+L move up
-bindsym $mod+Shift+AE move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -73,13 +99,10 @@ bindsym $mod+e layout default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindcode $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -120,29 +143,31 @@ mode "resize" {
         # when pressing left, the window is resized so that it has
         # more space on its left
 
-bindsym Left resize shrink left 10 px or 10 ppt
-bindsym Shift+Left resize grow   left 10 px or 10 ppt
+        bindsym Left resize shrink left 10 px or 10 ppt
+        bindsym Shift+Left resize grow   left 10 px or 10 ppt
 
-bindsym Down resize shrink down 10 px or 10 ppt
-bindsym Shift+Down resize grow   down 10 px or 10 ppt
+        bindsym Down resize shrink down 10 px or 10 ppt
+        bindsym Shift+Down resize grow   down 10 px or 10 ppt
 
-bindsym Up resize shrink up 10 px or 10 ppt
-bindsym Shift+Up resize grow   up 10 px or 10 ppt
+        bindsym Up resize shrink up 10 px or 10 ppt
+        bindsym Shift+Up resize grow   up 10 px or 10 ppt
 
-bindsym Right resize shrink right 10 px or 10 ppt
-bindsym Shift+Right resize grow   right 10 px or 10 ppt
+        bindsym Right resize shrink right 10 px or 10 ppt
+        bindsym Shift+Right resize grow   right 10 px or 10 ppt
 
         # back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-
+# AUTOSTART
 # automatically starting applications on i3 startup
-exec volumeicon -b
-exec dropbox start
+exec dropbox start  # Dropbox
+exec nm-applet -sm-disable     # Network Manager
+#exec skype         # Skype
+
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status

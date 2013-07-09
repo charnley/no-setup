@@ -1,0 +1,6 @@
+texlive-full "Latex"
+python-numpy "numpy"
+python-scipy "scipy"
+python-matplotlib "matplotlib"
+avogadro "Molecule viewer"
+jmol "molecule viewer"

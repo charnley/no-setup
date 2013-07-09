@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Define interface width and height
+NOLIN=20
+NOCOL=70
+NOVIW=10
+
+setup_default()
+{
+  # Use scripts to setup
+
+ # ./scripts/setup_xterm.sh
+  ./scripts/setup_dotfiles.sh
+  ./scripts/setup_ohmyzsh.sh
+}
+
+
+setup_audio()
+{
+  sudo adduser "$(whoami)" audio
+}
+
+
+setup_network()
+{
+  sudo adduser "$(whoami)" netdev
+}
+
+
+whiptail\
+  --title "Nobuntu Config Menu"\
+  --yesno "This will configure dotfiles like 'Jimmy' wants it. Are you sure?"\
+  $NOLIN $NOCOL
+
+exitstatus=$?
+
+if [ $exitstatus = 0 ]; then
+  setup_default
+  setup_audio
+  setup_network
+else
+  exit 0
+fi
+
+
+
+

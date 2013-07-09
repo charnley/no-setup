@@ -1,54 +1,111 @@
-# Ubuntu - Minimal Tile Setup (MTS)
 
-![Desktio Screenshot](https://raw.github.com/charnley/ubuntu-mts/master/screenshots/screenshot_1.png)
+# No Setup, Installation setup script for Ubuntu Minimal 12.04
 
+![Screenshot](http://placehold.it/350x150.png)
 
-So this is basicly a small 'distribution' I made because I felt the workflow in
-unity and gnome wasn't my style. 
+## Why?
 
-That is when I found [i3wm](http://i3wm.org/) and fell in love with it.
+This is a installation script for
+[Ubuntu Minimal 12.04](https://help.ubuntu.com/community/Installation/MinimalCD)
+based around the [window manager i3](http://i3wm.org)
 
-The workflow I had in mind is basicly focused on i3, and the usage of terminal and
-keyboard shortcuts (instead of a mouse). 
+The installation script is an alternative work-environment to
+the traditional Unity, Gnome3, LXDE, etc based.
+We wanted a minimal, fast and productive work-flow
+which we found in the tile-based window manager
+[i3 window manager](http://i3wm.org/).
 
-So basicly this is just an
-Installation script for a minimal setup of linux, based on tile wm (i3) and the ubuntu minimal CD.
+So what we present here is a install script based around
+the awesome window manager and a minimal Ubuntu setup, mostly
+aimed towards power users.
 
 ## Installation Instructions
 
-1. Download and install the newest ubuntu minimal cd from
-https://help.ubuntu.com/community/Installation/MinimalCD.
-I recommend 12.04 because of LTS.
+1. Download 'Ubuntu Minimal CD' from
+[https://help.ubuntu.com/community/Installation/MinimalCD](https://help.ubuntu.com/community/Installation/MinimalCD).
+I recommend 12.04 because of LTS (Long Term Support).
+Install it on your computer.
 
-2. Run install.sh to install all the packages for i3 fun.
+2. Install git
 
-3. Run Setup.sh to move files and download some stuff.
+    sudo apt-get install git
 
-## Keyboard Shortcuts
+Download Nobuntu installation script.
 
-The shortcuts is split into two categories, terminal usage and i3 (genereal)
-usage.
+    git clone git://github.com/nobuntu/nobuntu-install.git
+
+
+Run the installation script 'install' from the folder, and remember to run it as administrator.
+
+    cd nobuntu-install
+    sudo ./install
+
+
+Run the configuration script for the user you want to configure.
+
+    ./config
+
+
+Restart and Happy i3'ing
+
+    sudo shutdown -r now
+
+
+## Usage (Keyboard Shortcuts)
+
+The shortcut are changed via `~/.i3/config` settings file.
+
+Most important shortcut is `Super + D` which opens the
+menu launcher. The following shortcuts as based on my
+specific setup, but all shortcuts are easily changed in
+the configuration file.
+
+### Application Shortcuts
 
 <table>
-  <tr><td>*Keys*</td><td>*Command*</td></tr>
-  <tr><td>Super+Enter</td><td>Open new Terminal</td></tr>
-  <tr><td>Super+Q</td><td>Kill Selected Application</td></tr>
-  <tr><td>Control + Alt + L</td><td> Lock Computer</td></tr>
-  <tr><td>Super + O</td><td> Lock and Suspend Computer </td></tr>
+  <tr><td><strong>Keys</strong></td><td><strong>Command</strong></td></tr>
+  <tr><td>Super + Enter</td><td>Open new Terminal</td></tr>
+  <tr><td>Super + q</td><td>Kill Selected Application</td></tr>
+  <tr><td>Control + Alt + l</td><td> Lock Computer</td></tr>
+  <tr><td>Super + l</td><td> Lock Computer </td></tr>
+  <tr><td>Super + o</td><td> Lock and Suspend Computer </td></tr>
   <tr><td>Print Screen </td><td> Screenshot (saved in home folder) </td></tr>
-  <tr><td>Super + D </td><td> Application launcher </td></tr>
+  <tr><td>Super + d </td><td> Application launcher </td></tr>
+  <tr><td>Super + e </td><td> Exit (Logout) </td></tr>
+  <tr><td>Super + Shift + r </td><td> Restart i3 </td></tr>
 </table>
 
-See .i3/config for more general shortcuts
+### Moving Around
 
-See .Xressource for terminal shortcuts
+<table>
+  <tr><td><strong>Keys</strong></td><td><strong>Command</strong></td></tr>
+  <tr><td>Super + <arrow></td><td>Change focus in arrow direction</td></tr>
+  <tr><td>Super + Shift + <arrow></td><td>Move window in arrow direction</td></tr>
+  <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
+  <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
+</table>
 
+### Container modes
+
+<table>
+  <tr><td>Super + e</td><td>Default</td></tr>
+  <tr><td>Super + s</td><td>Stacking</td></tr>
+  <tr><td>Super + w</td><td>Tabbed</td></tr>
+  <tr><td>Super + Shift + Space</td><td>Toggle floating</td></tr>
+  <tr><td>Super + h</td><td>Horizontal split</td></tr>
+  <tr><td>Super + v</td><td>Vertical split</td></tr>
+  <tr><td>Super + r</td><td>Resize window</td></tr>
+</table>
+
+### Resize window
+
+<table>
+  <tr><td>Esc</td><td>Exit resize mode</td></tr>
+  <tr><td><arrow></td><td>Extend in direction</td></tr>
+  <tr><td>Shift + <arrow></td><td>Retract in direction</td></tr>
+</table>
 
 ## FAQ
 
-* *How do i connect to a wireless network?*
 
-Open a terminal and type 'wicd-curses' to use
-the terminal interface and connect to a network,
-wired or wireless
 

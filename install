@@ -1,0 +1,187 @@
+#!/bin/bash
+
+# Nobuntu installation script
+
+# Make sure only root can run our script
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root"
+  exit 1
+fi
+
+# Define interface width and height
+NOLIN=20
+NOCOL=70
+NOVIW=10
+
+install_default()
+{
+  package_file=${1-packages/no-jimmy}
+  package_string=$(tr '\n' '\n' <$package_file)
+
+  oIFS="$IFS"
+  IFS="
+"
+  IFS=${IFS:0:1}
+  lines=( $package_string )
+  package_names=()
+  package_title=()
+
+  n_lines=0
+
+  for line in "${lines[@]}"
+  do
+    first=`echo ${line%% *}`
+    rest=`echo ${line#* }`
+    package_names+=($first)
+    package_title+=($rest)
+    n_lines=`expr $n_lines + 1`
+  done
+
+  whiptail\
+    --title "Nobuntu Installation Menu"\
+    --yesno "This will install Nobuntu with the default packages. Are you sure?"\
+    $NOLIN $NOCOL
+
+  exitstatus=$?
+
+  if [ $exitstatus = 0 ]; then
+    apt-get update
+    apt-get -y install ${package_names[@]}
+    setup_i3
+    install_i3
+    setup_default
+  else
+    menu_main
+    exit
+  fi
+
+}
+
+
+install_i3()
+{
+  #i3 "metapackage (i3 window manager, screen locker, menu, statusbar)"
+  # Ask user because the i3 is not "authenticated"
+  apt-get install i3
+}
+
+
+setup_i3()
+{
+  # This must be called if you want the newest i3
+  # MUST BE CALLED BEFORE INSTALLATION
+  ./scripts/setup_i3.sh
+}
+
+
+setup_default()
+{
+  # Use scripts to setup
+  ./scripts/setup_font_monaco.sh
+
+  ./scripts/setup_dropbox.sh
+  ./scripts/setup_xdm.sh
+  ./scripts/setup_networkapplet.sh # WARNING, See script
+}
+
+
+menu_guide()
+{
+  #JCK TODO Finish the function
+  echo "GUIDED TOUR NOT FINISHED"
+  exit
+}
+
+menu_list()
+{
+
+  package_file=${1-packages/no-jimmy}
+  package_string=$(tr '\n' '\n' <$package_file)
+
+  oIFS="$IFS"
+  IFS="
+"
+  IFS=${IFS:0:1}
+  lines=( $package_string )
+  package_names=()
+  package_title=()
+
+  n_lines=0
+
+  for line in "${lines[@]}"
+  do
+    first=`echo ${line%% *}`
+    rest=`echo ${line#* }`
+    package_names+=($first)
+    package_title+=($rest)
+    n_lines=`expr $n_lines + 1`
+  done
+
+  packages=$(whiptail\
+      --checklist "Preferred Linux Packages" $NOLIN $NOCOL $NOVIW \
+      `for ((i=0;i<${n_lines};i++))
+      do
+        echo "${package_names[$i]}"
+        echo "${package_title[$i]}" | sed -s 's/"//g'
+        echo on
+      done` \
+      3>&1 1>&2 2>&3 )
+
+  exitstatus=$?
+
+  if [ $exitstatus = 0 ]; then
+    echo "apt-get install $packages"
+    exit
+  fi
+
+  if [ $exitstatus = 1 ]; then
+    menu_main
+    exit
+  fi
+
+}
+
+menu_main()
+{
+  menu=$(whiptail\
+    --title "Nobuntu Installation Menu"\
+    --menu " " $NOLIN $NOCOL $NOVIW \
+    "A)" "Default Installation.  (Recommended)"\
+    "B)" "Guided Installation.   Wizard installation. "\
+    "C)" "Advanced Installation. Choose packages. "\
+    3>&1 1>&2 2>&3)
+
+  exitstatus=$?
+
+  if [ "$exitstatus" == 1 ]; then
+    exit 0
+  fi
+
+  if [ "$menu" == 'A)' ]; then
+    install_default
+    exit
+  fi
+
+  if [ "$menu" == 'B)' ]; then
+    menu_guide
+    exit
+  fi
+
+  if [ "$menu" == 'C)' ]; then
+    menu_list
+    exit
+  fi
+}
+
+whiptail \
+ --title "Nobuntu Installation Menu"\
+ --msgbox "\
+\n NOBUNTU INSTALLATION\
+\n \
+\n This guide will help you install Nobuntu. \
+\n \
+\n If you find any bugs, please report it on github:\
+\n http://github.com/nobuntu/install" $NOLIN $NOCOL
+
+menu_main
+

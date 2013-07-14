@@ -80,7 +80,6 @@ setup_default()
   ./scripts/setup_font_monaco.sh
 
   ./scripts/setup_dropbox.sh
-  ./scripts/setup_xdm.sh
   ./scripts/setup_networkapplet.sh # WARNING, See script
 }
 

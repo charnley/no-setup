@@ -103,7 +103,7 @@ ttf-ubuntu-font-family "Ubuntu Font Family, sans-serif typeface hinted for clari
 ttf-wqy-microhei "A droid derived Sans-Seri style CJK font"
 xdg-utils "desktop integration utilities from freedesktop.org"
 vim "Vi IMproved - enhanced vi editor"
-slim "desktop-independent graphical login manager for X11"
+gdm "gnome desktop manager"
 pm-utils "Utilities and scripts for power management"
 git "fast, scalable, distributed revision control system"
 zsh "shell with lots of features"

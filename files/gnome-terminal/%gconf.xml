@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="scroll_on_keystroke" mtime="1373816819" type="bool" value="false"/>
+	<entry name="scrollbar_position" mtime="1373816819" type="string">
+		<stringvalue>hidden</stringvalue>
+	</entry>
+	<entry name="allow_bold" mtime="1373816819" type="bool" value="false"/>
+	<entry name="default_show_menubar" mtime="1373816819" type="bool" value="false"/>
+	<entry name="silent_bell" mtime="1373816819" type="bool" value="true"/>
+	<entry name="scrollback_unlimited" mtime="1373816819" type="bool" value="true"/>
+	<entry name="font" mtime="1373816819" type="string">
+		<stringvalue>Monaco 10</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1373816819" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1373816819" type="bool" value="false"/>
+	<entry name="palette" mtime="1373816819" type="string">
+		<stringvalue>#666666666666:#CCCC33326666:#6665CCCC3332:#CCCC99983332:#33326666CCCC:#99983332CCCC:#3332CCCC9998:#CCCCCCCCCCCC:#999999999999:#FFFF66669999:#9999FFFF6666:#FFFFCCCC6666:#66669998FFFF:#CCCC6666FFFF:#6666FFFFCCCC:#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="alternate_screen_scroll" mtime="1373816819" type="bool" value="true"/>
+	<entry name="background_color" mtime="1373816819" type="string">
+		<stringvalue>#111111111111</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1373816819" type="string">
+		<stringvalue>Default</stringvalue>
+	</entry>
+	<entry name="bold_color" mtime="1373816819" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1373816819" type="string">
+		<stringvalue>#CCCCCCCCCCCC</stringvalue>
+	</entry>
+</gconf>

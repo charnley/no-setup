@@ -12,6 +12,7 @@ setup_default()
  # ./scripts/setup_xterm.sh
   ./scripts/setup_dotfiles.sh
   ./scripts/setup_ohmyzsh.sh
+  ./scripts/setup_gnometerm.sh
 }
 
 

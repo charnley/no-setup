@@ -74,7 +74,7 @@ the configuration file.
   <tr><td>Super + o</td><td> Lock and Suspend Computer </td></tr>
   <tr><td>Print Screen </td><td> Screenshot (saved in home folder) </td></tr>
   <tr><td>Super + d </td><td> Application launcher </td></tr>
-  <tr><td>Super + e </td><td> Exit (Logout) </td></tr>
+  <tr><td>Super + Shift + e </td><td> Exit (Logout) </td></tr>
   <tr><td>Super + Shift + r </td><td> Restart i3 </td></tr>
 </table>
 
@@ -84,7 +84,6 @@ the configuration file.
   <tr><td><strong>Keys</strong></td><td><strong>Command</strong></td></tr>
   <tr><td>Super + &#60;arrow&#62;</td><td>Change focus in arrow direction</td></tr>
   <tr><td>Super + Shift + &#60;arrow&#62;</td><td>Move window in arrow direction</td></tr>
-  <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
   <tr><td>Super + f</td><td>Toggle Fullscreen</td></tr>
 </table>
 

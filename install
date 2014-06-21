@@ -1,186 +1,154 @@
 #!/bin/bash
 
-# Nobuntu installation script
+# NO Setup
+# Installation Setup script for Ubuntu Minimal
+
 
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
-  echo "This script must be run as root"
-  exit 1
+    echo "Installation script must be run as root"
+    # exit 1
 fi
 
-# Define interface width and height
+# CONSTANTS
+
+# Define "user interface" width and height.
+# should be small for small resolutions.
 NOLIN=20
 NOCOL=70
 NOVIW=10
 
-install_default()
-{
-  package_file=${1-packages/no-jimmy}
-  package_string=$(tr '\n' '\n' <$package_file)
+# Get the Ubuntu version
+# Fx.
+# DISTRIB_ID=Ubuntu
+# DISTRIB_RELEASE=12.04
+# DISTRIB_CODENAME=precise
+# DISTRIB_DESCRIPTION="Ubuntu 12.04 LTS"
+source /etc/lsb-release
 
-  oIFS="$IFS"
-  IFS="
-"
-  IFS=${IFS:0:1}
-  lines=( $package_string )
-  package_names=()
-  package_title=()
-
-  n_lines=0
-
-  for line in "${lines[@]}"
-  do
-    first=`echo ${line%% *}`
-    rest=`echo ${line#* }`
-    package_names+=($first)
-    package_title+=($rest)
-    n_lines=`expr $n_lines + 1`
-  done
-
-  whiptail\
-    --title "Installation Menu"\
-    --yesno "This will install with the default packages. Are you sure?"\
-    $NOLIN $NOCOL
-
-  exitstatus=$?
-
-  if [ $exitstatus = 0 ]; then
-    apt-get update
-    apt-get -y install ${package_names[@]}
-    setup_i3
-    install_i3
-    setup_default
-  else
-    menu_main
-    exit
-  fi
-
-}
+# Supported ubuntu versions
+supported_versions[0]='12.04'
+supported_versions[1]='14.04'
+supported_versions[2]='13.10'
 
 
-install_i3()
-{
-  #i3 "metapackage (i3 window manager, screen locker, menu, statusbar)"
-  # Ask user because the i3 is not "authenticated"
-  apt-get install i3
-}
-
-
-setup_i3()
-{
-  # This must be called if you want the newest i3
-  # MUST BE CALLED BEFORE INSTALLATION
-  ./scripts/setup_i3.sh
-}
-
-
-setup_default()
-{
-  # Use scripts to setup
-  ./scripts/setup_font_monaco.sh
-
-  ./scripts/setup_dropbox.sh
-  ./scripts/setup_networkapplet.sh # WARNING, See script
-}
-
-
-menu_guide()
-{
-  #JCK TODO Finish the function
-  echo "GUIDED TOUR NOT FINISHED"
-  exit
-}
-
-menu_list()
-{
-
-  package_file=${1-packages/no-jimmy}
-  package_string=$(tr '\n' '\n' <$package_file)
-
-  oIFS="$IFS"
-  IFS="
-"
-  IFS=${IFS:0:1}
-  lines=( $package_string )
-  package_names=()
-  package_title=()
-
-  n_lines=0
-
-  for line in "${lines[@]}"
-  do
-    first=`echo ${line%% *}`
-    rest=`echo ${line#* }`
-    package_names+=($first)
-    package_title+=($rest)
-    n_lines=`expr $n_lines + 1`
-  done
-
-  packages=$(whiptail\
-      --checklist "Preferred Linux Packages" $NOLIN $NOCOL $NOVIW \
-      `for ((i=0;i<${n_lines};i++))
-      do
-        echo "${package_names[$i]}"
-        echo "${package_title[$i]}" | sed -s 's/"//g'
-        echo on
-      done` \
-      3>&1 1>&2 2>&3 )
-
-  exitstatus=$?
-
-  if [ $exitstatus = 0 ]; then
-    echo "apt-get install $packages"
-    exit
-  fi
-
-  if [ $exitstatus = 1 ]; then
-    menu_main
-    exit
-  fi
-
-}
+# Define functions
 
 menu_main()
 {
-  menu=$(whiptail\
-    --title "Installation Menu"\
-    --menu " " $NOLIN $NOCOL $NOVIW \
-    "A)" "Default Installation.  (Recommended)"\
-    "B)" "Guided Installation.   Wizard installation. "\
-    "C)" "Advanced Installation. Choose packages. "\
-    3>&1 1>&2 2>&3)
+    menu=$(whiptail\
+        --title "Choose Package Installation Method"\
+        --menu " " $NOLIN $NOCOL $NOVIW \
+        "A)" "Default Installation.    (Recommended)"\
+        "B)" "Guided Installation.     Wizard installation. "\
+        "C)" "Advanced Installation.   Choose packages. "\
+        3>&1 1>&2 2>&3)
 
-  exitstatus=$?
+    exitstatus=$?
 
-  if [ "$exitstatus" == 1 ]; then
-    exit 0
-  fi
+    if [ "$exitstatus" == 1 ]; then
+        exit 0
+    fi
 
-  if [ "$menu" == 'A)' ]; then
-    install_default
-    exit
-  fi
+    if [ "$menu" == 'A)' ]; then
+        install_default
+        exit
+    fi
 
-  if [ "$menu" == 'B)' ]; then
-    menu_guide
-    exit
-  fi
+    if [ "$menu" == 'B)' ]; then
+        menu_guide
+        exit
+    fi
 
-  if [ "$menu" == 'C)' ]; then
-    menu_list
-    exit
-  fi
+    if [ "$menu" == 'C)' ]; then
+        menu_list
+        exit
+    fi
 }
 
+
+install_default()
+{
+
+    package_file=${1-packages/$DISTRIB_RELEASE/no-jimmy}
+    package_string=$(tr '\n' '\n' <$package_file)
+
+    oIFS="$IFS"
+    IFS="
+    "
+    IFS=${IFS:0:1}
+    lines=( $package_string )
+    package_names=()
+    package_title=()
+
+    n_lines=0
+
+    for line in "${lines[@]}"
+    do
+        first=`echo ${line%% *}`
+        rest=`echo ${line#* }`
+        package_names+=($first)
+        package_title+=($rest)
+        n_lines=`expr $n_lines + 1`
+    done
+
+    echo ${package_names[@]}
+
+    whiptail\
+        --title "Installation Menu"\
+        --yesno "This will install with the default packages. Are you sure?"\
+        $NOLIN $NOCOL
+
+    exitstatus=$?
+
+    if [ $exitstatus = 0 ]; then
+        exit 1
+        apt-get update
+        apt-get -y install ${package_names[@]}
+        setup_i3
+        install_i3
+        setup_default
+    else
+        menu_main
+        exit
+    fi
+
+}
+
+
+install_guide()
+{
+
+    # TODO Select packages
+    # TODO Select package lists
+    # TODO Select packages from lists (or full)
+
+    # TODO Choose programs? (nautilus vs pcmanfm)
+
+    exit 1
+
+}
+
+
+# Start
+
 whiptail \
- --title "Installation Menu"\
+ --title "No Setup"\
  --msgbox "\
-\n INSTALLATION\
+\n NOTE FROM AUTHOR(S):\
 \n \
-\n This guide will help you install the setup. \
+\n We hope this helps! \
 \n \
 \n If you find any bugs, please report it on github:\
 \n http://github.com/charnley/no-setup" $NOLIN $NOCOL
 
+# Check Ubuntu Version
+if ! [[ ${supported_versions[*]} =~ "$DISTRIB_RELEASE" ]]
+then
+    echo "Ubuntu version not supported"
+    exit 1
+fi
+
+# Begin user interface
 menu_main
 

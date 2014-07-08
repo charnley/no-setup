@@ -103,11 +103,13 @@ install_default()
 
     if [ $exitstatus = 0 ]; then
         exit 1
+
+        # Insert i3 to apt packages
+        setup_i3
+
+        # Update and install all other packages
         apt-get update
         apt-get -y install ${package_names[@]}
-        setup_i3
-        install_i3
-        setup_default
     else
         menu_main
         exit
@@ -118,7 +120,6 @@ install_default()
 
 install_guide()
 {
-
     # TODO Select packages
     # TODO Select package lists
     # TODO Select packages from lists (or full)
@@ -126,8 +127,17 @@ install_guide()
     # TODO Choose programs? (nautilus vs pcmanfm)
 
     exit 1
-
 }
+
+
+setup_i3()
+{
+    # http://i3wm.org/docs/repositories.html
+    echo "deb http://debian.sur5r.net/i3/ $DISTRIB_CODENAME universe" >> /etc/apt/sources.list
+    apt-get update
+    apt-get --allow-unauthenticated install sur5r-keyring
+}
+
 
 
 # Start

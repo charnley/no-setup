@@ -1,0 +1,7 @@
+texlive-full "metapackage pulling in all components of TeX Live"
+python-numpy "Numerical Python adds a fast array facility to the Python language"
+python-scipy "scientific tools for Python"
+python-matplotlib "Python based plotting system in a style similar to Matlab"
+avogadro "Molecular Graphics and Modelling System"
+jmol "Molecular Viewer"
+pymol "Molecular Graphics System"

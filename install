@@ -7,7 +7,7 @@
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
     echo "Installation script must be run as root"
-    # exit 1
+    exit 1
 fi
 
 # CONSTANTS
@@ -29,10 +29,8 @@ source /etc/lsb-release
 # Supported ubuntu versions
 supported_versions[0]='12.04'
 supported_versions[1]='14.04'
-supported_versions[2]='13.10'
 
-
-# Define functions
+# FUNCTIONS
 
 menu_main()
 {
@@ -70,7 +68,7 @@ menu_main()
 install_default()
 {
 
-    package_file=${1-packages/$DISTRIB_RELEASE/no-jimmy}
+    package_file=${1-packages/$DISTRIB_RELEASE/default}
     package_string=$(tr '\n' '\n' <$package_file)
 
     oIFS="$IFS"
@@ -95,21 +93,21 @@ install_default()
     echo ${package_names[@]}
 
     whiptail\
-        --title "Installation Menu"\
-        --yesno "This will install with the default packages. Are you sure?"\
+        --title "Default Installation"\
+        --yesno "This will install with the default packages.\n Are you sure?"\
         $NOLIN $NOCOL
 
     exitstatus=$?
 
     if [ $exitstatus = 0 ]; then
-        exit 1
-
         # Insert i3 to apt packages
         setup_i3
 
         # Update and install all other packages
         apt-get update
+        apt-get -y upgrade
         apt-get -y install ${package_names[@]}
+        apt-get -y install i3
     else
         menu_main
         exit
@@ -139,8 +137,7 @@ setup_i3()
 }
 
 
-
-# Start
+# START PROMPT
 
 whiptail \
  --title "No Setup"\
@@ -159,6 +156,7 @@ then
     exit 1
 fi
 
-# Begin user interface
+# START USER EXPERINCE
+
 menu_main
 

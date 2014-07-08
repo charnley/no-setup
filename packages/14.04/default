@@ -110,7 +110,7 @@ ttf-ubuntu-font-family "Ubuntu Font Family, sans-serif typeface hinted for clari
 xdg-utils "desktop integration utilities from freedesktop.org"
 xterm "X terminal emulator"
 vim "Vi IMproved - enhanced vi editor"
-gdm "gnome desktop manager"
+lightdm "Display Manager"
 pm-utils "Utilities and scripts for power management"
 git "fast, scalable, distributed revision control system"
 zsh "shell with lots of features"
